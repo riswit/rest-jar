@@ -2,6 +2,8 @@ package com.riswit.tutorials.springrestservices.payroll;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 class EmployeeController {
 
     private final EmployeeRepository repository;
+    private static Log log = LogFactory.getLog(LoadDatabase.class);
 
     EmployeeController(EmployeeRepository repository) {
         this.repository = repository;
@@ -23,11 +26,13 @@ class EmployeeController {
 
     @GetMapping("/employees")
     List<Employee> all() {
+        log.warn("ok ... employees all");
         return repository.findAll();
     }
 
     @PostMapping("/employees")
     Employee newEmployee(@RequestBody Employee newEmployee) {
+        log.warn("ok ... employees newEmployee");
         return repository.save(newEmployee);
     }
 

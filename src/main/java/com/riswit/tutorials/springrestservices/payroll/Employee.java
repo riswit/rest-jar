@@ -19,7 +19,7 @@ class Employee {
         this.role = role;
     }
 
-    public Long getId() {
+/*    public Long getId() {
         return id;
     }
 
@@ -41,5 +41,5 @@ class Employee {
 
     public void setRole(String role) {
         this.role = role;
-    }
+    }*/
 }
