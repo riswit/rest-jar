@@ -4,13 +4,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 class EmployeeController {
@@ -30,8 +24,8 @@ class EmployeeController {
         return repository.findAll();
     }
 
-    @PostMapping("/employees")
-    Employee newEmployee(@RequestBody Employee newEmployee) {
+    @PostMapping(path = "/employees")
+    Employee newEmployee(Employee newEmployee) {
         log.warn("ok ... employees newEmployee");
         return repository.save(newEmployee);
     }
